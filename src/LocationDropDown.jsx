@@ -109,22 +109,29 @@ const LocationDropDown = () => {
 
     const selectedBlock = selectedDistinct ? selectedDistinct.blocks.find(e => e.blockName === block) : ""
 
-    const valueForLocalStroge = [state, district, block, pincode]
+    // const valueForLocalStroge = [state, district, block, pincode]
 
     // useEffect(() => {
     //     localStorage.setItem("data", JSON.stringify(valueForLocalStroge))
     //     console.log((getItemLocalStroge.state));
     // }, [pincode])
 
-    const getItemLocalStroge = JSON.parse(localStorage.getItem("data"))
+    // const getItemLocalStroge = JSON.parse(localStorage.getItem("data"))
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setState('')
-        setDistrict('')
-        setBlock('')
-        setPincode('')
-        console.log(state, district, block, pincode);
+        if (state) {
+            setState('')
+            setDistrict('')
+            setBlock('')
+            setPincode('')
+            console.log(state, district, block, pincode);
+            alert("Data Submitted")
+        }
+        else {
+            alert("Select Your Location")
+        }
+
     }
 
 
