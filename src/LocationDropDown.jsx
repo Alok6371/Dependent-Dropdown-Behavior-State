@@ -138,8 +138,8 @@ const LocationDropDown = () => {
     return (
 
 
-        <div className='p-[5vh]'>
-            <div className='flex gap-3  '>
+        <div className='p-[5vh] '>
+            <div className='flex gap-3  flex-rows '>
                 {/* Select the State */}
 
                 <select
@@ -163,11 +163,16 @@ const LocationDropDown = () => {
                     }
                 </select>
 
-                {/* select th  Distinct */}
+                {/* select the  Distinct */}
                 <select
                     className='bg-green-400 rounded-lg  ronunded-lg p-3'
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
+                    onClick={() => {
+                        if (!state) {
+                            alert("Fill The  State")
+                        }
+                    }}
                 >
                     <option >
                         Select Distinct
@@ -184,6 +189,11 @@ const LocationDropDown = () => {
                     className='bg-green-400  rounded-lg ronunded-lg p-3'
                     value={block}
                     onChange={(e) => setBlock(e.target.value)}
+                    onClick={() => {
+                        if (!state || !district) {
+                            alert("Fill The  State and Distinct")
+                        }
+                    }}
                 >
                     <option >Select Block</option>
                     {
@@ -199,6 +209,12 @@ const LocationDropDown = () => {
                     className='bg-green-400 rounded-lg ronunded-lg p-3'
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
+                    onClick={() => {
+                        if (!state || !district || !block) {
+                            alert("Fill The  State and Distinct and Block")
+
+                        }
+                    }}
                 >
                     <option>Select PinCode</option>
                     {
