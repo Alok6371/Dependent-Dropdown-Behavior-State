@@ -153,7 +153,7 @@ const LocationDropDown = () => {
                     }
                     }
                 >
-                    <option > Selct State</option>
+                    <option > Select State</option>
                     {
                         states.map((sta) => (
                             <option>
