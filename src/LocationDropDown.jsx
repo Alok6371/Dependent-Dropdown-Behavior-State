@@ -165,7 +165,7 @@ const LocationDropDown = () => {
 
                 {/* select the  Distinct */}
                 <select
-                    className='bg-green-400 rounded-lg  ronunded-lg p-3'
+                    className={` ${state ? "bg-green-400" : "bg-red-400"}  rounded-lg ronunded-lg p-3`}
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
                     onClick={() => {
@@ -186,7 +186,7 @@ const LocationDropDown = () => {
 
                 {/* select the  Block*/}
                 <select
-                    className='bg-green-400  rounded-lg ronunded-lg p-3'
+                    className={` ${state && district ? "bg-green-400" : "bg-red-400"}  rounded-lg ronunded-lg p-3`}
                     value={block}
                     onChange={(e) => setBlock(e.target.value)}
                     onClick={() => {
@@ -206,7 +206,7 @@ const LocationDropDown = () => {
 
                 {/* selct PinCode */}
                 <select
-                    className='bg-green-400 rounded-lg ronunded-lg p-3'
+                    className={` ${state && district && block ? "bg-green-400" : "bg-red-400"}  rounded-lg ronunded-lg p-3`}
                     value={pincode}
                     onChange={(e) => setPincode(e.target.value)}
                     onClick={() => {
