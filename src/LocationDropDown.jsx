@@ -109,6 +109,24 @@ const LocationDropDown = () => {
 
     const selectedBlock = selectedDistinct ? selectedDistinct.blocks.find(e => e.blockName === block) : ""
 
+    const valueForLocalStroge = [state, district, block, pincode]
+
+    // useEffect(() => {
+    //     localStorage.setItem("data", JSON.stringify(valueForLocalStroge))
+    //     console.log((getItemLocalStroge.state));
+    // }, [pincode])
+
+    const getItemLocalStroge = JSON.parse(localStorage.getItem("data"))
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setState('')
+        setDistrict('')
+        setBlock('')
+        setPincode('')
+        console.log(state, district, block, pincode);
+    }
+
 
     return (
 
@@ -122,6 +140,9 @@ const LocationDropDown = () => {
                     value={state}
                     onChange={(e) => {
                         setState(e.target.value);
+                        setDistrict('')
+                        setBlock('')
+                        setPincode('')
                     }
                     }
                 >
@@ -140,8 +161,6 @@ const LocationDropDown = () => {
                     className='bg-green-400 rounded-lg  ronunded-lg p-3'
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
-
-
                 >
                     <option >
                         Select Distinct
@@ -184,33 +203,41 @@ const LocationDropDown = () => {
             </div>
             <br />
             <div>
-                <h1 className='font-semibold'>You Selcted</h1>
-                <p >
-                    State: <nspb />
-                    <span className='font-semibold'>
-                        {(state)}
-                    </span>
-                </p>
-                <p >
-                    Distinct: <nspb />
-                    <span className='font-semibold'>
-                        {(district)}
-                    </span>
-                </p>
-                <p >
-                    Block: <nspb />
-                    <span className='font-semibold'>
-                        {(block)}
-                    </span>
-                </p>
-                <p >
-                    Pincode: <nspb />
-                    <span className='font-semibold'>
-                        {(pincode)}
-                    </span>
-                </p>
+                <form action="" onSubmit={handleSubmit}>
+
+                    <h1 className='font-semibold'>You Selcted</h1>
+                    <p >
+                        State: <nspb />
+                        <span className='font-semibold'>
+                            {(state)}
+                        </span>
+                    </p>
+                    <p >
+                        Distinct: <nspb />
+                        <span className='font-semibold'>
+                            {(district)}
+                        </span>
+                    </p>
+                    <p >
+                        Block: <nspb />
+                        <span className='font-semibold'>
+                            {(block)}
+                        </span>
+                    </p>
+                    <p >
+                        Pincode: <nspb />
+                        <span className='font-semibold'>
+                            {(pincode)}
+                        </span>
+                    </p>
+                    <button type='submit' className='bg-blue-300 p-3 mt-2 rounded-lg'>
+                        Send Data
+                    </button>
+                </form>
             </div>
-        </div>
+
+
+        </div >
     )
 }
 
