@@ -111,7 +111,7 @@ const LocationDropDown = () => {
 
 
     return (
-       
+
 
         <div className='p-[5vh]'>
             <div className='flex gap-3  '>
@@ -137,9 +137,10 @@ const LocationDropDown = () => {
 
                 {/* select th  Distinct */}
                 <select
-                    className='bg-green-400 rounded-lg ronunded-lg p-3'
+                    className='bg-green-400 rounded-lg  ronunded-lg p-3'
                     value={district}
                     onChange={(e) => setDistrict(e.target.value)}
+
 
                 >
                     <option >
