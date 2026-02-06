@@ -109,15 +109,6 @@ const LocationDropDown = () => {
 
     const selectedBlock = selectedDistinct ? selectedDistinct.blocks.find(e => e.blockName === block) : ""
 
-    // const valueForLocalStroge = [state, district, block, pincode]
-
-    // useEffect(() => {
-    //     localStorage.setItem("data", JSON.stringify(valueForLocalStroge))
-    //     console.log((getItemLocalStroge.state));
-    // }, [pincode])
-
-    // const getItemLocalStroge = JSON.parse(localStorage.getItem("data"))
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (state) {
@@ -133,12 +124,13 @@ const LocationDropDown = () => {
         }
 
     }
+    // const location 
 
 
     return (
 
 
-        <div className='p-[5vh] flex flex-col '>
+        <div className='p-[2vh] flex flex-col '>
             <div className='flex flex-col gap-3 md:flex-row  '>
                 {/* Select the State */}
 
@@ -168,7 +160,7 @@ const LocationDropDown = () => {
                 {/* select the  Distinct */}
                 <div>
                     <select
-                        className={` ${state ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
+                        className={` ${state ? "bg-green-400 font-semibold  " : "bg-gray-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
                         value={district}
                         onChange={(e) => setDistrict(e.target.value)}
                         onClick={() => {
@@ -191,7 +183,7 @@ const LocationDropDown = () => {
                 {/* select the  Block*/}
                 <div>
                     <select
-                        className={` ${state && district ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold "}  rounded-lg ronunded-lg p-3`}
+                        className={` ${state && district ? "bg-green-400 font-semibold  " : "bg-gray-400 text-white font-semibold "}  rounded-lg ronunded-lg p-3`}
                         value={block}
                         onChange={(e) => setBlock(e.target.value)}
                         onClick={() => {
@@ -213,7 +205,7 @@ const LocationDropDown = () => {
                 {/* selct PinCode */}
                 <div>
                     <select
-                        className={` ${state && district && block ? "bg-green-400 font-semibold " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
+                        className={` ${state && district && block ? "bg-green-400 font-semibold " : "bg-gray-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
                         value={pincode}
                         onChange={(e) => setPincode(e.target.value)}
                         onClick={() => {

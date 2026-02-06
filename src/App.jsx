@@ -4,7 +4,7 @@ import LocationDropDown from './LocationDropDown'
 const App = () => {
   return (
     <div
-      className='text-1xl bg-gray-400 h-screen'>
+      className='text-1xl bg-blue-400 h-screen'>
       <LocationDropDown />
     </div>
   )
