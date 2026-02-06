@@ -138,91 +138,99 @@ const LocationDropDown = () => {
     return (
 
 
-        <div className='p-[5vh] '>
-            <div className='flex gap-3  flex-rows '>
+        <div className='p-[5vh] flex flex-col '>
+            <div className='flex flex-col gap-3 md:flex-row  '>
                 {/* Select the State */}
 
-                <select
-                    className='bg-green-400 font-semibold    rounded-lg border-none p-3 '
-                    value={state}
-                    onChange={(e) => {
-                        setState(e.target.value);
-                        setDistrict('')
-                        setBlock('')
-                        setPincode('')
-                    }
-                    }
-                >
-                    <option > Select State</option>
-                    {
-                        states.map((sta) => (
-                            <option>
-                                {sta.stateName}
-                            </option>
-                        ))
-                    }
-                </select>
-
-                {/* select the  Distinct */}
-                <select
-                    className={` ${state ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
-                    value={district}
-                    onChange={(e) => setDistrict(e.target.value)}
-                    onClick={() => {
-                        if (!state) {
-                            alert("Fill The  State")
+                <div>
+                    <select
+                        className='bg-green-400 font-semibold    rounded-lg border-none p-3 '
+                        value={state}
+                        onChange={(e) => {
+                            setState(e.target.value);
+                            setDistrict('')
+                            setBlock('')
+                            setPincode('')
                         }
-                    }}
-                >
-                    <option >
-                        Select Distinct
-                    </option>
-                    {
-                        selctedState ? selctedState.districts.map((dis) => (
-                            <option >{dis.districtName}</option>
-                        )) : ""
-                    }
-                </select>
+                        }
+                    >
+                        <option > Select State</option>
+                        {
+                            states.map((sta) => (
+                                <option>
+                                    {sta.stateName}
+                                </option>
+                            ))
+                        }
+                    </select>
+
+                </div>
+                {/* select the  Distinct */}
+                <div>
+                    <select
+                        className={` ${state ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
+                        value={district}
+                        onChange={(e) => setDistrict(e.target.value)}
+                        onClick={() => {
+                            if (!state) {
+                                alert("Fill The  State")
+                            }
+                        }}
+                    >
+                        <option >
+                            Select Distinct
+                        </option>
+                        {
+                            selctedState ? selctedState.districts.map((dis) => (
+                                <option >{dis.districtName}</option>
+                            )) : ""
+                        }
+                    </select>
+                </div>
 
                 {/* select the  Block*/}
-                <select
-                    className={` ${state && district ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold "}  rounded-lg ronunded-lg p-3`}
-                    value={block}
-                    onChange={(e) => setBlock(e.target.value)}
-                    onClick={() => {
-                        if (!state || !district) {
-                            alert("Fill The  State and Distinct")
+                <div>
+                    <select
+                        className={` ${state && district ? "bg-green-400 font-semibold  " : "bg-red-400 text-white font-semibold "}  rounded-lg ronunded-lg p-3`}
+                        value={block}
+                        onChange={(e) => setBlock(e.target.value)}
+                        onClick={() => {
+                            if (!state || !district) {
+                                alert("Fill The  State and Distinct")
+                            }
+                        }}
+                    >
+                        <option >Select Block</option>
+                        {
+                            selectedDistinct ? selectedDistinct.blocks.map((blo) => (
+                                <option >{blo.blockName}</option>
+                            )) : ""
                         }
-                    }}
-                >
-                    <option >Select Block</option>
-                    {
-                        selectedDistinct ? selectedDistinct.blocks.map((blo) => (
-                            <option >{blo.blockName}</option>
-                        )) : ""
-                    }
-                </select>
+                    </select>
+                </div>
 
 
                 {/* selct PinCode */}
-                <select
-                    className={` ${state && district && block ? "bg-green-400 font-semibold " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
-                    value={pincode}
-                    onChange={(e) => setPincode(e.target.value)}
-                    onClick={() => {
-                        if (!state || !district || !block) {
-                            alert("Fill The  State and Distinct and Block")
+                <div>
+                    <select
+                        className={` ${state && district && block ? "bg-green-400 font-semibold " : "bg-red-400 text-white font-semibold"}  rounded-lg ronunded-lg p-3`}
+                        value={pincode}
+                        onChange={(e) => setPincode(e.target.value)}
+                        onClick={() => {
+                            if (!state || !district || !block) {
+                                alert("Fill The  State and Distinct and Block")
 
+                            }
+                        }}
+                    >
+                        <option>Select PinCode</option>
+                        {
+                            selectedBlock ? selectedBlock.pincodes.map((pin) => (
+                                <option >{pin}</option>
+                            )) : ""
                         }
-                    }}
-                >
-                    <option>Select PinCode</option>
-                    {
-                        selectedBlock ? selectedBlock.pincodes.map((pin) => (
-                            <option >{pin}</option>
-                        )) : ""
-                    }
-                </select>
+                    </select>
+                </div>
             </div>
             <br />
             <div>
